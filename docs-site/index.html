@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>acadsearch — Unified Academic Search API, SDK, CLI & MCP Server</title>
+<meta name="description" content="Agent-first scholarly search suite: 36+ academic databases behind one Python SDK, CLI, OpenAPI 3.1 REST server, Model Context Protocol server and Agent Skill." />
+<meta property="og:title" content="acadsearch — Unified Academic Search Database API" />
+<meta property="og:description" content="36+ scholarly databases behind one SDK, CLI, REST API, MCP server & Agent Skill." />
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=clash-display@500,600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='8' cy='8' r='3' fill='%230e7c86'/%3E%3Ccircle cx='24' cy='7' r='2.4' fill='%230e7c86'/%3E%3Ccircle cx='17' cy='20' r='3.4' fill='%230e7c86'/%3E%3Ccircle cx='6' cy='25' r='2' fill='%230e7c86'/%3E%3Cpath d='M8 8l9 12M24 7l-7 13M17 20l-11 5M8 8l16-1' stroke='%230e7c86' stroke-opacity='.55' stroke-width='1.4' fill='none'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="acadsearch home">
+      <svg class="brand-mark" width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="8" cy="8" r="3" fill="currentColor"/>
+        <circle cx="24" cy="7" r="2.4" fill="currentColor"/>
+        <circle cx="17" cy="20" r="3.4" fill="currentColor"/>
+        <circle cx="6" cy="25" r="2" fill="currentColor"/>
+        <path d="M8 8l9 12M24 7l-7 13M17 20l-11 5M8 8l16-1" stroke="currentColor" stroke-opacity=".55" stroke-width="1.4" fill="none"/>
+      </svg>
+      <span class="brand-name">acadsearch</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#quickstart">Quickstart</a>
+      <a href="#mcp">MCP</a>
+      <a href="#databases">Databases</a>
+      <a href="#rest">REST&nbsp;API</a>
+      <a href="#fulltext">Full-text</a>
+      <a class="nav-gh" href="https://github.com/raktim-mondol/academic-search-api" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.05.77 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="kicker">Unified Academic Search Database Suite</p>
+        <h1 class="hero-title">Every scholarly database.<br/>One agent-ready API.</h1>
+        <p class="hero-sub">
+          <strong>acadsearch</strong> unifies <strong>36+ academic paper & journal databases</strong> —
+          OpenAlex, Semantic Scholar, Crossref, Clarivate Web&nbsp;of&nbsp;Science / JCR, Elsevier Scopus &
+          ScienceDirect, Wiley TDM, Springer Nature, IEEE Xplore, arXiv, PubMed / Europe&nbsp;PMC, DBLP and more —
+          behind a single Python SDK, CLI, OpenAPI&nbsp;3.1 REST server, Model Context Protocol server and Agent Skill.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#quickstart">Get started</a>
+          <a class="btn btn-ghost" href="https://github.com/raktim-mondol/academic-search-api" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+        <div class="hero-stats" role="list">
+          <div class="stat" role="listitem"><span class="stat-num">36+</span><span class="stat-label">databases & publishers</span></div>
+          <div class="stat" role="listitem"><span class="stat-num">4</span><span class="stat-label">interfaces: SDK · CLI · REST · MCP</span></div>
+          <div class="stat" role="listitem"><span class="stat-num">$0</span><span class="stat-label">keys required for the open core</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 340 340" width="340" height="340" class="graph-svg">
+          <g class="graph-edges" stroke="var(--color-primary)" stroke-opacity="0.28" stroke-width="1.3" fill="none">
+            <path d="M70 90 L 170 170"/>
+            <path d="M280 70 L 170 170"/>
+            <path d="M170 170 L 90 280"/>
+            <path d="M170 170 L 260 275"/>
+            <path d="M70 90 L 280 70"/>
+            <path d="M90 280 L 260 275"/>
+            <path d="M170 170 L 170 40"/>
+            <path d="M40 185 L 170 170"/>
+            <path d="M300 180 L 170 170"/>
+          </g>
+          <g class="graph-nodes" fill="var(--color-primary)">
+            <circle cx="70" cy="90" r="9"/>
+            <circle cx="280" cy="70" r="6"/>
+            <circle cx="170" cy="170" r="13"/>
+            <circle cx="90" cy="280" r="5"/>
+            <circle cx="260" cy="275" r="8"/>
+            <circle cx="170" cy="40" r="5"/>
+            <circle cx="40" cy="185" r="6"/>
+            <circle cx="300" cy="180" r="5"/>
+          </g>
+          <g class="graph-labels" font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--color-text-muted)">
+            <text x="70" y="72" text-anchor="middle">OpenAlex</text>
+            <text x="282" y="54" text-anchor="middle">Scopus</text>
+            <text x="170" y="196" text-anchor="middle" font-weight="600" fill="var(--color-text)">agent</text>
+            <text x="90" y="298" text-anchor="middle">arXiv</text>
+            <text x="262" y="293" text-anchor="middle">PubMed</text>
+            <text x="170" y="28" text-anchor="middle">WoS</text>
+            <text x="26" y="180" text-anchor="middle">DBLP</text>
+            <text x="308" y="172" text-anchor="middle">Wiley</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <p class="kicker">Capabilities</p>
+      <h2 class="section-title">What your agent gets</h2>
+      <div class="feature-grid">
+
+        <article class="feature-card">
+          <h3>Paper search & dedup</h3>
+          <p>Parallel search across OpenAlex, Semantic Scholar, Crossref, arXiv, PubMed/Europe PMC, DBLP, DOAJ, INSPIRE-HEP, Scopus, WoS and 12+ society publishers — merged by DOI, arXiv ID and title fingerprint, with reconstructed abstracts, TLDRs and OA PDF links.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Journal impact metrics</h3>
+          <p>ISSNs, APCs, DOAJ status, h-index, i10-index and 2-year mean citedness from OpenAlex, enriched with Elsevier CiteScore / SJR / SNIP and Clarivate JCR Impact Factor, JCI and Q1–Q4 quartiles when keys are configured.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Canonical BibTeX</h3>
+          <p>Official entries via universal DOI content negotiation, arXiv, DBLP and INSPIRE-HEP, with deterministic synthesis as a fallback — never a hallucinated citation key.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>4-tier full-text context</h3>
+          <p>Semantic Scholar 500-word snippets → arXiv LaTeXML HTML → NCBI PMC BioC JSON → legal OA PDF extraction, ranked against your focus query to keep the prompt window small.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Citation graphs</h3>
+          <p>Forward citations and backward references via OpenAlex and OpenCitations, including influential-citation counts and self-citation flags.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Zero-key open core</h3>
+          <p>The open scholarly graph works with no API keys — including OpenAlex's free singleton enrichment and automatic DBLP Anubis challenge solving — while optional keys unlock commercial tiers.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICKSTART -->
+  <section class="section section-alt" id="quickstart">
+    <div class="container">
+      <p class="kicker">Quickstart</p>
+      <h2 class="section-title">Up in three commands</h2>
+
+      <div class="qs-grid">
+        <div class="code-block">
+          <div class="code-head"><span class="code-lang">shell</span><span class="code-title">install</span></div>
+<pre><code>git clone https://github.com/raktim-mondol/academic-search-api
+cd academic-search-api
+pip install -e .</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-head"><span class="code-lang">shell</span><span class="code-title">CLI</span></div>
+<pre><code># search papers with abstracts, PDFs, citations & BibTeX
+acadsearch papers "Attention Is All You Need" \
+  --limit 3 --format markdown
+
+# journals with impact metrics
+acadsearch journals "Nature Machine Intelligence" \
+  --limit 3 --format markdown
+
+# official BibTeX for any identifier
+acadsearch bibtex "10.1038/nature14539"</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-head"><span class="code-lang">python</span><span class="code-title">SDK</span></div>
+<pre><code>from acadsearch import AcademicSearchClient
+
+client = AcademicSearchClient()
+
+papers = client.search_papers(
+    "Vision Transformer", year_min=2020, limit=5,
+    sort="citations",
+)
+for p in papers.results:
+    print(p.title, p.doi, p.citation_count)
+    print(p.abstract)
+    print(p.bibtex)
+
+ctx = client.get_pdf_context(
+    "arXiv:1706.03762",
+    focus_query="scaled dot-product attention",
+)
+print(ctx.full_text_excerpt)</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-head"><span class="code-lang">shell</span><span class="code-title">serve</span></div>
+<pre><code># FastAPI REST + Streamable HTTP /mcp on :8000
+acadsearch serve --port 8000
+
+# OpenAPI 3.1 spec at /openapi.json
+# Swagger UI at /docs
+
+# MCP stdio server for Claude Code / Cursor
+claude mcp add acadsearch -- \
+  python3 -m acadsearch.mcp_server</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MCP -->
+  <section class="section" id="mcp">
+    <div class="container">
+      <p class="kicker">Model Context Protocol</p>
+      <h2 class="section-title">Seven agent tools, one server</h2>
+      <p class="section-sub">Runs over stdio for local MCP clients and as a Streamable HTTP JSON-RPC 2.0 endpoint at <code>POST /mcp</code> when serving.</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Tool</th><th>Key arguments</th><th>Returns</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>academic_search_papers</code></td><td>query · providers · year_min/max · venue · min_citations · open_access_only · sort · limit</td><td>Deduplicated PaperRecords with abstracts, PDFs, metrics & BibTeX</td></tr>
+            <tr><td><code>academic_search_journals</code></td><td>query · issn · open_access_only · limit</td><td>ISSNs, APCs, DOAJ status, 2-yr mean citedness, h-index, CiteScore, SJR, JIF quartiles</td></tr>
+            <tr><td><code>academic_get_paper</code></td><td>identifier (DOI / arXiv / PMID / PMCID / OpenAlex / title)</td><td>Single merged record enriched across providers</td></tr>
+            <tr><td><code>academic_get_bibtex</code></td><td>identifier</td><td>Official or synthesized BibTeX string</td></tr>
+            <tr><td><code>academic_get_pdf_context</code></td><td>identifier · focus_query · max_chars</td><td>Sections, ranked snippets & full-text excerpt</td></tr>
+            <tr><td><code>academic_get_citations</code></td><td>identifier · direction · limit</td><td>Citing papers and outgoing references</td></tr>
+            <tr><td><code>academic_list_databases</code></td><td>—</td><td>Full provider catalog with auth & rate limits</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATABASES -->
+  <section class="section section-alt" id="databases">
+    <div class="container">
+      <p class="kicker">Coverage</p>
+      <h2 class="section-title">36+ databases & publishers</h2>
+      <p class="section-sub">Grouped by tier. All keys are optional — the open tiers need no credentials.</p>
+
+      <div class="db-tiers">
+        <div class="db-tier">
+          <h3 class="db-tier-title">Open scholarly graphs & registries</h3>
+          <div class="chip-row">
+            <span class="chip">OpenAlex</span><span class="chip">Semantic Scholar</span><span class="chip">Crossref</span><span class="chip">DOI negotiation</span><span class="chip">OpenCitations</span><span class="chip">DataCite</span><span class="chip">OpenAIRE</span><span class="chip">ORCID</span>
+          </div>
+        </div>
+        <div class="db-tier">
+          <h3 class="db-tier-title">Journals, OA resolvers & repositories</h3>
+          <div class="chip-row">
+            <span class="chip">DOAJ v4</span><span class="chip">Unpaywall</span><span class="chip">CORE</span><span class="chip">HAL</span><span class="chip">Zenodo</span>
+          </div>
+        </div>
+        <div class="db-tier">
+          <h3 class="db-tier-title">Discipline databases & preprints</h3>
+          <div class="chip-row">
+            <span class="chip">arXiv + ar5iv</span><span class="chip">PubMed</span><span class="chip">Europe PMC</span><span class="chip">PMC BioC</span><span class="chip">PubTator 3.0</span><span class="chip">bioRxiv / medRxiv</span><span class="chip">DBLP</span><span class="chip">INSPIRE-HEP</span><span class="chip">NASA ADS</span>
+          </div>
+        </div>
+        <div class="db-tier">
+          <h3 class="db-tier-title">Commercial & publisher APIs</h3>
+          <div class="chip-row">
+            <span class="chip">Web of Science + JCR</span><span class="chip">Scopus</span><span class="chip">ScienceDirect</span><span class="chip">Wiley TDM</span><span class="chip">Springer Nature</span><span class="chip">IEEE Xplore</span>
+          </div>
+        </div>
+        <div class="db-tier">
+          <h3 class="db-tier-title">Society & university presses</h3>
+          <div class="chip-row">
+            <span class="chip">Taylor & Francis</span><span class="chip">SAGE</span><span class="chip">OUP</span><span class="chip">Cambridge UP</span><span class="chip">ACM</span><span class="chip">ACS</span><span class="chip">APS</span><span class="chip">IOP</span><span class="chip">RSC</span><span class="chip">MDPI</span><span class="chip">Frontiers</span><span class="chip">PLOS</span>
+          </div>
+        </div>
+        <div class="db-tier">
+          <h3 class="db-tier-title">AI-native evidence tools</h3>
+          <div class="chip-row">
+            <span class="chip">Consensus</span><span class="chip">scite</span><span class="chip">Elicit</span><span class="chip">PaperQA2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REST -->
+  <section class="section" id="rest">
+    <div class="container">
+      <p class="kicker">HTTP interface</p>
+      <h2 class="section-title">OpenAPI 3.1 REST endpoints</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Method</th><th>Path</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><span class="method get">GET</span></td><td><code>/health</code></td><td>Service status</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/v1/databases</code></td><td>Supported database catalog</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/v1/papers/search</code></td><td>Multi-provider paper search</td></tr>
+            <tr><td><span class="method post">POST</span></td><td><code>/v1/papers/search</code></td><td>Same, JSON body</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/v1/papers/lookup</code></td><td>Single paper by any identifier</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/v1/journals/search</code></td><td>Journals & impact metrics</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/v1/bibtex</code></td><td>BibTeX resolution (plain text)</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/v1/context</code></td><td>Full-text & PDF context extraction</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/v1/citations</code></td><td>Citation graph traversal</td></tr>
+            <tr><td><span class="method post">POST</span></td><td><code>/mcp</code></td><td>Streamable HTTP MCP endpoint (JSON-RPC 2.0)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULLTEXT -->
+  <section class="section section-alt" id="fulltext">
+    <div class="container">
+      <p class="kicker">Context extraction</p>
+      <h2 class="section-title">The 4-tier full-text cascade</h2>
+      <p class="section-sub">Deep section-level paper context without flooding the prompt window or corrupting multi-column PDFs.</p>
+
+      <ol class="cascade">
+        <li class="cascade-step">
+          <span class="cascade-num">1</span>
+          <div><h3>Semantic Scholar snippets</h3><p>~500-word body-text passages from <code>/graph/v1/snippet/search</code>, ranked against your focus query.</p></div>
+        </li>
+        <li class="cascade-step">
+          <span class="cascade-num">2</span>
+          <div><h3>arXiv LaTeXML HTML</h3><p>Native <code>arxiv.org/html</code> and ar5iv sections, tables and equations for any paper with an arXiv ID.</p></div>
+        </li>
+        <li class="cascade-step">
+          <span class="cascade-num">3</span>
+          <div><h3>NCBI PMC BioC JSON</h3><p>Structured TITLE, ABSTRACT, INTRO, METHODS, RESULTS, DISCUSS passages for biomedical papers, plus PubTator 3.0 full-text export.</p></div>
+        </li>
+        <li class="cascade-step">
+          <span class="cascade-num">4</span>
+          <div><h3>Legal OA PDF extraction</h3><p>Wiley TDM, ScienceDirect and Springer JATS full-text APIs when keyed; otherwise Unpaywall-resolved PDFs parsed with pypdf.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="container cta-inner">
+      <h2 class="cta-title">Clone it. Deploy it. Ask it anything.</h2>
+      <p class="cta-sub">Everything runs from one install — SDK, CLI, REST server, MCP server and the Agent Skill package.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="https://github.com/raktim-mondol/academic-search-api" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.05.77 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.2.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          raktim-mondol/academic-search-api
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-brand">acadsearch v1.0.0</span>
+    <span class="footer-links">
+      <a href="https://github.com/raktim-mondol/academic-search-api" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/raktim-mondol/academic-search-api/blob/master/skills/academic-search/SKILL.md" target="_blank" rel="noopener">Agent Skill</a>
+      <a href="https://github.com/raktim-mondol/academic-search-api/blob/master/docs/Academic-Search-Database-API-Reference.md" target="_blank" rel="noopener">API Reference</a>
+    </span>
+    <span class="footer-note">Open data from OpenAlex, Crossref, Semantic Scholar, Europe PMC & friends — cite responsibly.</span>
+  </div>
+</footer>
+
+</body>
+</html>
