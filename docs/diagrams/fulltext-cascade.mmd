@@ -1,0 +1,8 @@
+flowchart TB
+    ID["Paper identifier<br/>DOI / arXiv / PMID / PMCID / title"] --> M0["Step 0 - merged metadata<br/>abstract - TLDR - BibTeX - OA PDF"]
+    M0 --> T1["Tier 1 - Semantic Scholar snippets<br/>500-word body passages"]
+    T1 --> T2["Tier 2 - arXiv LaTeXML HTML<br/>sections - tables - equations"]
+    T2 --> T3["Tier 3 - NCBI PMC BioC JSON<br/>INTRO - METHODS - RESULTS - DISCUSS"]
+    T3 --> T4["Tier 4 - OA PDF + pypdf<br/>page extraction ranked by focus query"]
+    T4 --> OUT["PaperContextResult<br/>sections - snippets - excerpt"]
+    M0 -.->|paywalled fallback| OUT

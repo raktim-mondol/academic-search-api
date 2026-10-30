@@ -6,6 +6,24 @@ It works **out of the box with zero API keys required** across open scholarly gr
 
 ---
 
+## Architecture
+
+Every agent interface — CLI, SDK, REST, MCP server, and Agent Skill — funnels into a single `AcademicSearchClient` that fans queries out across open scholarly graphs and optional keyed commercial tiers, then deduplicates, merges, and enriches the results.
+
+<p align="center">
+  <img src="docs/images/architecture.svg" alt="acadsearch architecture: agent interfaces converging on AcademicSearchClient, which queries open scholarly graphs and keyed commercial tiers" width="880">
+</p>
+
+### Paper search pipeline
+
+A query fans out in parallel to every selected provider, deduplicates matches by DOI / arXiv ID / title fingerprint, merges records field-by-field, enriches top results through OpenAlex's free singleton endpoint, and resolves canonical BibTeX before returning the final records.
+
+<p align="center">
+  <img src="docs/images/search-pipeline.svg" alt="Paper search pipeline: parallel provider query, dedup, field-level merge, OpenAlex singleton enrichment, BibTeX cascade, paper records" width="880">
+</p>
+
+---
+
 ## Key Capabilities
 
 1. **Multi-Database Paper Search & Deduplication (`search_papers`)**:
@@ -25,6 +43,14 @@ It works **out of the box with zero API keys required** across open scholarly gr
      - **Tier 4**: Legal Open-Access PDF resolution (via OpenAlex, Semantic Scholar, Europe PMC, and Unpaywall) + `pypdf` page extraction ranked by `focus_query`.
 5. **Citation Graph Traversal (`get_citations`)**:
    - Retrieves incoming citing papers and outgoing references via OpenAlex and OpenCitations Index v2 (`COCI`).
+
+### The 4-tier full-text context cascade
+
+`get_pdf_context` gives agents deep section-level context without flooding the prompt window, cascading from targeted body-text snippets through structured HTML and BioC JSON to legal OA PDF extraction — with a paywalled fallback to abstract + snippets.
+
+<p align="center">
+  <img src="docs/images/fulltext-cascade.svg" alt="4-tier full-text cascade: paper identifier to merged metadata, Semantic Scholar snippets, arXiv LaTeXML HTML, PMC BioC JSON, OA PDF extraction, with paywalled fallback" width="360">
+</p>
 
 ---
 

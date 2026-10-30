@@ -1,0 +1,44 @@
+flowchart TB
+    subgraph interfaces["Agent interfaces"]
+        CLI["acadsearch CLI"]
+        SDK["Python SDK"]
+        REST["FastAPI REST + OpenAPI 3.1"]
+        MCP["MCP Server - stdio and HTTP"]
+        SKILL["Agent Skill - SKILL.md + references"]
+    end
+
+    CORE["AcademicSearchClient<br/>parallel query - dedup - merge - enrichment"]
+
+    subgraph open["Open scholarly graphs - no API keys"]
+        OA["OpenAlex"]
+        S2["Semantic Scholar"]
+        CR["Crossref + DOI"]
+        AX["arXiv + ar5iv"]
+        EPMC["PubMed / Europe PMC"]
+        DBLP["DBLP"]
+    end
+
+    subgraph keyed["Keyed commercial tiers"]
+        WOS["Web of Science / JCR"]
+        SCO["Scopus / ScienceDirect"]
+        WIL["Wiley TDM"]
+        SPR["Springer Nature"]
+        IEEE["IEEE Xplore"]
+    end
+
+    CLI --> CORE
+    SDK --> CORE
+    REST --> CORE
+    MCP --> CORE
+    SKILL --> CORE
+    CORE --> OA
+    CORE --> S2
+    CORE --> CR
+    CORE --> AX
+    CORE --> EPMC
+    CORE --> DBLP
+    CORE --> WOS
+    CORE --> SCO
+    CORE --> WIL
+    CORE --> SPR
+    CORE --> IEEE

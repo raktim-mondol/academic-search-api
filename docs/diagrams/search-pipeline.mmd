@@ -1,0 +1,17 @@
+flowchart LR
+    Q["Query + filters<br/>year - venue - citations - OA"] --> P1["OpenAlex"]
+    Q --> P2["Semantic Scholar"]
+    Q --> P3["Crossref"]
+    Q --> P4["arXiv"]
+    Q --> P5["Europe PMC"]
+    Q --> P6["DBLP"]
+    P1 --> DEDUP["Deduplicate<br/>DOI - arXiv ID - title"]
+    P2 --> DEDUP
+    P3 --> DEDUP
+    P4 --> DEDUP
+    P5 --> DEDUP
+    P6 --> DEDUP
+    DEDUP --> MERGE["Field-level merge<br/>richest value wins"]
+    MERGE --> ENRICH["OpenAlex singleton enrichment<br/>0 USD - abstracts - citations - PDFs"]
+    ENRICH --> BIB["BibTeX cascade<br/>DOI - arXiv - DBLP - INSPIRE - synth"]
+    BIB --> OUT["Paper records<br/>metadata - abstract - PDF - BibTeX"]
