@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "acadsearch": {
+      "command": "python3",
+      "args": ["-m", "acadsearch.mcp_server"],
+      "env": {
+        "ACADEMIC_MAILTO": "research-agent@example.org",
+        "OPENALEX_API_KEY": "",
+        "S2_API_KEY": "",
+        "ELSEVIER_API_KEY": "",
+        "CORE_API_KEY": ""
+      }
+    }
+  }
+}
